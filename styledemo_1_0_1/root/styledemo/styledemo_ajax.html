@@ -1,0 +1,39 @@
+<!-- BEGIN style_data -->
+						<!-- IF style_data.STYLE_LINK -->
+						<a class="top-right" href="{style_data.STYLE_LINK}" title="{L_SD_LINK_REMOTE}" id="demo_link" name="demo_link" onclick="prompt_link(this.href);return false;" ><img src="./images/pinned.gif" title="{L_SD_LINK_REMOTE}" /></a>
+						<!-- ENDIF -->
+						<div class="column1">
+							<!-- IF style_data.STYLE_NAME -->
+								<label for="style_name">{L_SD_STYLE_NAME}:</label><span id="style_name">{style_data.STYLE_NAME}</span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.STYLE_COPYRIGHT -->
+								<label for="style_copyright">{L_SD_COPYRIGHT}:</label><span id="style_copyright">{style_data.STYLE_COPYRIGHT}</span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.TEMPLATE_NAME -->
+								<label for="template_name">{L_SD_STYLE_TEMPLATE}:</label><span id="template_name">{style_data.TEMPLATE_NAME}<!-- IF style_data.TEMPLATE_INHERIT_PATH -->&nbsp;<label for="template_inherit_path">{L_SD_INHERITING_FROM}:</label><span id="template_inherit_path">{style_data.TEMPLATE_INHERIT_PATH}</span><!-- ENDIF --></span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.THEME_NAME -->
+								<label for="theme_name">{L_SD_STYLE_THEME}:</label><span id="style_name">{style_data.THEME_NAME}</span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.IMAGESET_NAME -->
+								<label for="imageset_name">{L_SD_STYLE_IMAGESET}:</label><span id="imageset_name">{style_data.IMAGESET_NAME}</span><br />
+							<!-- ENDIF -->
+						</div>
+						<div class="column2">
+							<!-- IF style_data.STYLE_VERSION -->
+								<label for="style_version">{L_SD_STYLE_VERSION}:</label><span id="style_version">{style_data.STYLE_VERSION}</span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.PHPBB_VERSION -->
+								<label for="phpbb_version">{L_SD_PHPBB_VERSION}:</label><span id="phpbb_version">{style_data.PHPBB_VERSION}</span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.AUTHOR -->
+								<label for="style_author">{L_SD_STYLE_AUTHOR}:</label><span id="style_author"><!-- IF style_data.WEB_AUTHOR --><a id="style_author" href="{style_data.WEB_AUTHOR}" onclick="window.open(this.href);return false;" title="{L_SD_STYLE_AUTHOR}">{style_data.AUTHOR}</a><!-- ELSE -->{style_data.AUTHOR}<!-- ENDIF --></span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.DOWNLOAD -->
+								<a href="{style_data.DOWNLOAD}" onclick="window.open(this.href);return false;" title="{L_SD_DOWNLOAD}">{L_SD_DOWNLOAD}</a></span><br />
+							<!-- ENDIF -->
+							<!-- IF style_data.SUPPORT -->
+								<a href="{style_data.SUPPORT}" onclick="window.open(this.href);return false;" title="{L_SD_SUPPORT}">{L_SD_SUPPORT}</a><br />
+							<!-- ENDIF -->
+						</div>
+<!-- END style_data -->

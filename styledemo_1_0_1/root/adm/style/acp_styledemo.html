@@ -1,0 +1,169 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<!-- IF S_SETTINGS -->
+
+	<span style="float: {S_CONTENT_FLOW_END};">&laquo; {U_MSSTI} &raquo;</span>
+
+	<h1>{L_TITLE}</h1>
+
+	<p>{L_EXPLAIN}</p>
+
+	<!-- IF S_ERROR_MSG -->
+		<div class="errorbox">
+			<h3>{L_WARNING}</h3>
+			<p>{ERROR_MSG}</p>
+		</div>
+	<!-- ENDIF -->
+
+	<form id="acp_styles" method="post" action="{U_ACTION}">
+		<fieldset>
+			<legend>{L_TITLE}</legend>
+			<dl>
+				<dt><label for="sd_mod">{L_ACP_SD_DISABLE}:</label><br /><span>{L_ACP_SD_DISABLE_EXPLAIN}</span></dt>
+				<dd><label><input type="radio" class="radio" name="sd_mod" value="1"<!-- IF S_SD_ENABLE --> id="sd_mod" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+					<label><input type="radio" class="radio" name="sd_mod" value="0"<!-- IF not S_SD_ENABLE --> id="sd_mod" checked="checked"<!-- ENDIF --> /> {L_YES}</label></dd>
+			</dl>
+			<dl>
+				<dt><label for="sd_hide_frame">{L_ACP_SD_HIDE_FRAME}:</label><br /><span>{L_ACP_SD_HIDE_FRAME_EXPLAIN}</span></dt>
+				<dd><label><input type="radio" class="radio" name="sd_hide_frame" value="1"<!-- IF S_SD_HIDE_FRAME --> id="sd_hide_frame" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+					<label><input type="radio" class="radio" name="sd_hide_frame" value="0"<!-- IF not S_SD_HIDE_FRAME --> id="sd_hide_frame" checked="checked"<!-- ENDIF --> /> {L_YES}</label></dd>
+			</dl>
+			<dl>
+				<dt><label for="sd_top_frame_height">{L_ACP_SD_TOPFRAME_HEIGHT}:</label><br /><span>{L_ACP_SD_TOPFRAME_HEIGHT_EXPLAIN}</span></dt>
+				<dd><input type="text" id="sd_top_frame_height" name="sd_top_frame_height" value="{S_SD_TOP_FRAME_HEIGHT}" class="text" size="3" maxlength="3" /> {L_PIXEL}</dd>
+			</dl>
+			<dl>
+				<dt><label for="sd_style_active">{L_ACP_SD_STYLE_ACTIVE}:</label><br /><span>{L_ACP_SD_STYLE_ACTIVE_EXPLAIN}</span></dt>
+				<dd><label><input type="radio" class="radio" name="sd_style_active" value="0"<!-- IF not S_SD_STYLE_ACTIVE --> id="sd_style_active" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+					<label><input type="radio" class="radio" name="sd_style_active" value="1"<!-- IF S_SD_STYLE_ACTIVE --> id="sd_style_active" checked="checked"<!-- ENDIF --> /> {L_YES}</label></dd>
+			</dl>
+			<dl>
+				<dt><label for="sd_language_active">{L_ACP_SD_LANGUAGE_ACTIVE}:</label><br /><span>{L_ACP_SD_LANGUAGE_ACTIVE_EXPLAIN}</span></dt>
+				<dd><label><input type="radio" class="radio" name="sd_language_active" value="0"<!-- IF not S_SD_LANGUAGE_ACTIVE --> id="sd_language_active" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+					<label><input type="radio" class="radio" name="sd_language_active" value="1"<!-- IF S_SD_LANGUAGE_ACTIVE --> id="sd_language_active" checked="checked"<!-- ENDIF --> /> {L_YES}</label></dd>
+			</dl>
+			<dl>
+				<dt><label for="sd_guest">{L_ACP_SD_GUESTS_ACTIVE}:</label><br /><span>{L_ACP_SD_GUESTS_ACTIVE_EXPLAIN}</span></dt>
+				<dd><label><input type="radio" class="radio" name="sd_guest" value="1"<!-- IF S_SD_GUEST_ENABLE --> id="sd_guest" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+					<label><input type="radio" class="radio" name="sd_guest" value="0"<!-- IF not S_SD_GUEST_ENABLE --> id="sd_guest" checked="checked"<!-- ENDIF --> /> {L_YES}</label></dd>
+			</dl>
+		</fieldset>
+
+		<fieldset>
+			<legend>{L_ACP_SUBMIT_CHANGES}</legend>
+			<p class="submit-buttons">
+				<input class="button1" type="submit" name="update" value="{L_SUBMIT}" />
+			</p>
+			{S_FORM_TOKEN}
+		</fieldset>
+	</form>
+
+<!-- ELSEIF S_FRONTEND -->
+
+	<h1>{L_TITLE}</h1>
+
+	<p>{L_EXPLAIN}</p>
+
+	<form id="acp_styles" method="post" action="{U_ACTION}">
+		<fieldset>
+			<legend>{L_ACP_SD_SELECT_STYLE}</legend>
+			<select name="style_id" onchange="if (this.options[this.selectedIndex].value != 0){ this.form.submit(); }">
+				{S_OPTIONS}
+			</select>
+			<input class="button2" type="submit" name="add" value="{L_SUBMIT}" />
+		</fieldset>
+	</form>
+
+<!-- ELSEIF S_EDIT_STYLE -->
+
+	<a href="{U_BACK}" style="float: {S_CONTENT_FLOW_END};">&laquo; {L_BACK}</a>
+
+	<h1>{L_TITLE}</h1>
+
+	<p>{L_EXPLAIN}</p>
+
+	<!-- IF S_ERROR_MSG -->
+		<div class="errorbox">
+			<h3>{L_WARNING}</h3>
+			<p>{ERROR_MSG}</p>
+		</div>
+	<!-- ENDIF -->
+	<p>{L_ACP_SD_SELECTED_STYLE}: <strong>{SELECTED_TEMPLATE}<!-- IF S_DEFAULT_STYLE --><span class="error"> *</span><!-- ENDIF --></strong></p>
+
+	<form id="acp_styles" method="post" action="{U_ACTION}">
+		<fieldset>
+			<legend>{L_ACP_SD_BASIS_OPTIONS}</legend>
+			<dl>
+				<dt><label for="style_identified">{L_ACP_SD_IDENTIFIER}:</label></dt>
+				<dd><span id="style_identified">{STYLE_ID}</span></dd>
+			</dl>
+			<dl>
+				<dt><label for="style_name">{L_ACP_SD_STYLE_NAME}:</label></dt>
+				<dd><span id="style_name">{STYLE_NAME}</span></dd>
+			</dl>
+			<dl>
+				<dt><label for="style_copyright">{L_SD_COPYRIGHT}:</label></dt>
+				<dd><span id="style_copyright">{STYLE_COPYRIGHT}</span></dd>
+			</dl>
+			<dl>
+				<dt><label for="template_name">{L_SD_STYLE_TEMPLATE}:</label></dt>
+				<dd><span id="template_name">{TEMPLATE_NAME}</span></dd>
+			</dl>
+			<!-- IF TEMPLATE_INHERIT_FROM -->
+			<dl>
+				<dt><label for="template_inherit_path">{L_SD_INHERITING_FROM}:</label></dt>
+				<dd><span id="template_inherit_path">{TEMPLATE_INHERIT_FROM}</span></dd>
+			</dl>
+			<!-- ENDIF -->
+			<dl>
+				<dt><label for="theme_name">{L_SD_STYLE_THEME}:</label></dt>
+				<dd><span id="theme_name">{THEME_NAME}</span></dd>
+			</dl>
+			<dl>
+				<dt><label for="imageset_name">{L_SD_STYLE_IMAGESET}:</label></dt>
+				<dd><span id="imageset_name">{IMAGESET_NAME}</span></dd>
+			</dl>
+		</fieldset>
+
+		<fieldset>
+			<legend>{L_ACP_SD_TITLE}</legend>
+			<dl>
+				<dt><label for="style_version">{L_ACP_SD_STYLE_VERSION}:</label><br /><span>{L_ACP_SD_STYLE_VERSION_EXPLAIN}</span></dt>
+				<dd><input type="text" id="style_version" name="style_version" value="{STYLE_VERSION}" class="text tiny" maxlength="10" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="phpbb_version">{L_ACP_SD_PHPBB_VERSION}:</label><br /><span>{L_ACP_SD_PHPBB_VERSION_EXPLAIN}</span></dt>
+				<dd><input type="text" id="phpbb_version" name="phpbb_version" value="{PHPBB_VERSION}" class="text tiny" maxlength="10" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="style_author">{L_ACP_SD_STYLE_AUTHOR}:</label><br /><span>{L_ACP_SD_STYLE_AUTHOR_EXPLAIN}</span></dt>
+				<dd><input type="text" id="style_author" name="style_author" value="{AUTHOR}" class="text medium" maxlength="100" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="style_web_author">{L_ACP_SD_WEB_AUTHOR}:</label><br /><span>{L_ACP_SD_WEB_AUTHOR_EXPLAIN}<br />{L_ACP_SD_LINK_EXPLAIN}</span></dt>
+				<dd><input type="text" id="style_web_author" name="style_web_author" value="{WEB_AUTHOR}" class="text full" maxlength="255" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="style_support">{L_ACP_SD_SUPPORT}:</label><br /><span>{L_ACP_SD_SUPPORT_EXPLAIN}<br />{L_ACP_SD_LINK_EXPLAIN}</span></dt>
+				<dd><input type="text" id="style_support" name="style_support" value="{SUPPORT}" class="text full" maxlength="255" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="style_download">{L_ACP_SD_DOWNLOAD}:</label><br /><span>{L_ACP_SD_DOWNLOAD_EXPLAIN}<br />{L_ACP_SD_LINK_EXPLAIN}</span></dt>
+				<dd><input type="text" id="style_download" name="style_download" value="{DOWNLOAD}" class="text full" maxlength="255" /></dd>
+			</dl>
+		</fieldset>
+
+		<fieldset>
+			<legend>{L_ACP_SUBMIT_CHANGES}</legend>
+			<p class="submit-buttons">
+				<input class="button1" type="submit" id="update" name="update" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button2" type="reset" value="{L_RESET}" />
+			</p>
+			{S_FORM_TOKEN}
+		</fieldset>
+	</form>
+
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

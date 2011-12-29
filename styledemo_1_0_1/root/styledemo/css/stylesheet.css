@@ -1,0 +1,150 @@
+/*  StyleDemo Style Sheet */
+
+* {
+	/* Reset browsers default margin, padding and font sizes */
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 100%;
+	/* Always show a scrollbar for short pages - stops the jump when the scrollbar appears. non-IE browsers */
+	height: 101%;
+}
+body {
+	/* Text-Sizing with ems: http://www.clagnut.com/blog/348/ */
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	color: #ffffff;
+	background-color: #333333;
+	/* This sets the default font size to be equivalent to 10px */
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	min-width: 1024px;
+}
+img {
+	border: 0;
+}
+/* hide_frame Start */
+#menuSwitch {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+#midbar {
+	border-width: 1px 0;
+	padding: 0;
+	border-style: outset;
+	border-color: #333333;
+	background-color: #999999;
+}
+/* hide_frame End */
+.demo_header {
+	padding: 1px 10px;	
+}
+.site_logo {
+	margin-right: 1em;
+}
+.gen {
+	margin: 1px 1px;
+	font-size: 12px;
+}
+.genmed {
+	margin: 1px 1px;
+	font-size: 11px;
+}
+.gensmall {
+	margin: 1px 1px;
+	font-size: 10px;
+}
+select {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	cursor: pointer;
+	vertical-align: middle;
+	border: 1px solid #666666;
+	background-color: #fafafa;
+}
+option {
+	padding-right: 1em;
+}
+input {
+	cursor: pointer;
+	font-family: Verdana,Helvetica,Arial,sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	padding: 0 3px;
+	vertical-align: middle;
+}
+input.button1, input.button2, input.button3 {
+	padding: 2px 3px 2px 3px;
+	background: #fafafa url("./../images/bg_button.gif") repeat-x top;
+	color: #000000;
+	border: 1px solid #666666;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	width: auto !important;
+}
+input.button1 {
+	font-weight: bold;
+}
+input.button1:hover, input.button2:hover , input.button3:hover{
+	border: 1px solid #BC2A4D;
+	background: #efefef url("./../images/bg_button.gif") repeat bottom;
+	color: #bc2a4d;
+}
+
+a:link, a:visited, label {
+	color: #01D8FE; /* #ffffff; */
+	font-weight: bold;
+	padding-right: 5px;
+}
+a:hover {
+	color: #BC2A4D;
+	text-decoration: underline;
+}
+
+#style_demo {
+}
+.col_1 {
+	text-align: left;
+	vertical-align: top;
+}
+.col_2 {
+	text-align: right;
+	vertical-align: top;
+	width: 35%;
+}
+* html .col_2 { width: 31%; }
+.col_3 {
+	text-align: left;
+	vertical-align: top;
+	width: 50%;
+}
+* html .col_3 { width: 46%; }
+
+.column1 {
+	float: left;
+	clear: left;
+	width: 49%;
+}
+.column2 {
+	float: right;
+	clear: right;
+	width: 49%;
+}
+/* Misc layout styles */
+* html .column1, * html .column2 { width: 45%; }
+
+#AjaxStats_image {
+	margin: 0 0;
+}
+.bottom-right {
+	font-size: 6px;
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+}
+.top-right {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
