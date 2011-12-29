@@ -1,7 +1,7 @@
 <?php
 /**
-* @package: phpBB 3.0.7 :: Style Demo MOD -> root/language/en/mods :: [en][English]
-* @version: $Id: mod_styledemo.php, v 1.0.0 2010/08/25 10:08:25 leviatan21 Exp $
+* @package: phpBB 3.0.8 :: Style Demo MOD -> root/language/en/mods :: [en][English]
+* @version: $Id: mod_styledemo.php, v 1.0.2 2011/01/24 11:01:24 leviatan21 Exp $
 * @copyright: leviatan21 < info@mssti.com > (Gabriel) http://www.mssti.com/phpbb3/
 * @license: http://opensource.org/licenses/gpl-license.php GNU Public License 
 * @author: leviatan21 - http://www.phpbb.com/community/memberlist.php?mode=viewprofile&u=345763
@@ -44,7 +44,7 @@ $lang = array_merge($lang, array(
 	'INSTALLER_TITLE_EXPLAIN'		=> 'Welcome to the <strong>Style Demo</strong> Installation menu',
 
 // ACP 
-	'SD_LINK_TO_MSSTI'		=> 'Style Demo MOD, version %s by <a href="http://www.mssti.com/phpbb3" onclick="window.open(this.href);return false;">mssti</a>',
+	'SD_LINK_TO_MSSTI'				=> 'Style Demo MOD, version %s by <a href="http://www.mssti.com/phpbb3" onclick="window.open(this.href);return false;">mssti</a>',
 
 	'ACP_SD_TITLE'					=> 'Style Demo',
 	'ACP_SD_TITLE_EXPLAIN'			=> 'Here you can manage the available styles on your board. You may alter existing styles data for the “Style Demo MOD”, note that this data do not interferer with the phpBB styles data. The current default style is noted by the presence of an asterisk (*).',
@@ -57,9 +57,9 @@ $lang = array_merge($lang, array(
 	'ACP_SD_HIDE_FRAME_EXPLAIN'		=> 'Disable the “Collapse/Expand” view bar.',
 	'ACP_SD_TOPFRAME_HEIGHT'		=> 'Frame height',
 	'ACP_SD_TOPFRAME_HEIGHT_EXPLAIN'=> 'Default height of the top frame.',
-	'ACP_SD_STYLE_ACTIVE'			=> 'Availabe styles',
-	'ACP_SD_STYLE_ACTIVE_EXPLAIN'	=> 'Display all ( Actived and Deactivated ) installed styles, or only Actived styles.',
-	'ACP_SD_LANGUAGE_ACTIVE'		=> 'Availabe languages',
+	'ACP_SD_STYLE_ACTIVE'			=> 'Available styles',
+	'ACP_SD_STYLE_ACTIVE_EXPLAIN'	=> 'Display all ( Activated and Deactivated ) installed styles, or only Activated styles.',
+	'ACP_SD_LANGUAGE_ACTIVE'		=> 'Available languages',
 	'ACP_SD_LANGUAGE_ACTIVE_EXPLAIN'=> 'Display a selector with all installed languages.<br />Note: styles must have installed  “imagesets” from each language',
 	'ACP_SD_GUESTS_ACTIVE'			=> 'Guests',
 	'ACP_SD_GUESTS_ACTIVE_EXPLAIN'	=> 'Disable to non registered users.',
@@ -111,7 +111,8 @@ $lang = array_merge($lang, array(
 	'SD_NO_STYLE_DATA'	=> 'Cannot find style data.',
 	'SD_NOFRAMES'		=> 'Sorry, but your browser does not seem to support frames',
 	'SD_AJAX_DISABLED'	=> '<strong>Status:</strong> Cound not create Object. Your browser does not support AJAX (XMLHttpRequest) and was unable to process this request. Consider upgrading your browser.',
-
+	'SD_LOGIN_EXPLAIN'	=> 'The board requires you to be registered and logged in to view “Style Demo”.',
+	'SD_DISABLE'		=> 'Sorry but the “Style Demo” is currently unavailable.',
 ));
 
 ?>

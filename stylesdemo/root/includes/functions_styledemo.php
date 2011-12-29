@@ -1,7 +1,7 @@
 <?php
 /**
 * @package: phpBB 3.0.8 :: Style Demo MOD -> root/includes/
-* @version: $Id: functions_styledemo.php, v 1.0.1 2010/11/25 10:11:25 leviatan21 Exp $
+* @version: $Id: functions_styledemo.php, v 1.0.2 2011/01/24 11:01:24 leviatan21 Exp $
 * @copyright: leviatan21 < info@mssti.com > (Gabriel) http://www.mssti.com/phpbb3/
 * @license: http://opensource.org/licenses/gpl-license.php GNU Public License 
 * @author: leviatan21 - http://www.phpbb.com/community/memberlist.php?mode=viewprofile&u=345763
@@ -35,7 +35,8 @@ class style_demo
 	**/
 	function style_demo()
 	{
-		global $user, $table_prefix, $config, $phpEx;
+		global $user;
+		global $config, $phpEx;
 
 		// Table names
 	//	define('STYLES_DEMO_TABLE', $table_prefix . 'styles_demo');
@@ -51,6 +52,7 @@ class style_demo
 			'sd_language_active'	=> (isset($config['sd_language_active']))	? $config['sd_language_active']		: true,
 			'sd_guest'				=> (isset($config['sd_guest']))				? $config['sd_guest']				: true,
 		);
+
 	}
 
 	/**
@@ -59,6 +61,7 @@ class style_demo
 	function setup()
 	{
 		global $user;
+		global $config;
 
 		// Get default values
 		$this->style = $this->request_var('style');
@@ -74,6 +77,11 @@ class style_demo
 
 		// Now it's time for this
 		$user->setup('mods/mod_styledemo');
+
+		if ($config['board_disable'] || (!$user->data['is_registered'] && !$this->settings['sd_guest'])/** || $user->data['is_bot'] **/)
+		{
+			$this->settings['sd_mod'] = false;
+		}
 	}
 
 	/**
@@ -308,7 +316,10 @@ class style_demo
 			break;
 
 			case 'bottom':
-				redirect(append_sid("{$phpbb_root_path}index.$phpEx", array('sd' => 1, 'style' => $this->style, 'lang' => $this->lang)));
+				// Keep the opened link for the forum
+				$redirect = request_var('redirect', "{$phpbb_root_path}index.$phpEx");
+				redirect(append_sid($redirect, array('sd' => 1, 'style' => $this->style, 'lang' => $this->lang)));
+			//	redirect(append_sid("{$phpbb_root_path}index.$phpEx", array('sd' => 1, 'style' => $this->style, 'lang' => $this->lang)));
 			break;
 
 			case 'midbar':
@@ -347,7 +358,7 @@ class style_demo
 		header('Expires: 0');
 		header('Pragma: no-cache');
 
-		// Set custom template for admin area
+		// Set custom template
 		$template->set_custom_template($phpbb_root_path . 'styledemo', 'sd');
 
 		// the stylesdemo template is never stored in the database
@@ -366,6 +377,8 @@ class style_demo
 			// Don't use append_sid()
 			'U_SD_INDEX'			=> $this->settings['sd_index'],
 			'UA_SD_INDEX'			=> addslashes($this->settings['sd_index']),
+			'UA_ROOT_PATH'			=> addslashes($phpbb_root_path),
+			'UA_PHPEXT'				=> addslashes($phpEx),
 		));
 
 		$template->set_filenames(array(

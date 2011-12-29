@@ -1,7 +1,7 @@
 <?php
 /**
 * @package: phpBB 3.0.8 :: Style Demo MOD -> root/
-* @version: $Id: install_sd.php, v 3.0.8 2010/11/25 10:11:25 leviatan21 Exp $
+* @version: $Id: install_sd.php, v 1.0.2 2011/01/24 11:01:24 leviatan21 Exp $
 * @copyright: leviatan21 < info@mssti.com > (Gabriel) http://www.mssti.com/phpbb3/
 * @license: http://opensource.org/licenses/gpl-license.php GNU Public License 
 * @author: leviatan21 - http://www.phpbb.com/community/memberlist.php?mode=viewprofile&u=345763
@@ -33,7 +33,7 @@ if (!file_exists($phpbb_root_path . 'umil/umil_auto.' . $phpEx))
 $mod_data = array(
 	'config'	=> 'style_demo',
 	'name'		=> 'INSTALLER_TITLE',
-	'version'	=> '1.0.1',
+	'version'	=> '1.0.2',
 	'language'	=> 'mods/mod_styledemo',
 );
 
@@ -127,6 +127,8 @@ $versions = array(
 	),
 	// No changes from 1.0.0 to 1.0.1
 	'1.0.1'		=> array(),
+	// No changes from 1.0.1 to 1.0.2
+	'1.0.2'		=> array(),
 );
 
 // Include the UMIF Auto file and everything else will be handled automatically.

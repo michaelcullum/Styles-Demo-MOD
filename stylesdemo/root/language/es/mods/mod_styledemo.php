@@ -1,7 +1,7 @@
 <?php
 /**
 * @package: phpBB 3.0.8 :: Style Demo MOD -> root/language/en/mods :: [es][Spanish]
-* @version: $Id: mod_styledemo.php, v 1.0.1 2010/11/25 10:11:25 leviatan21 Exp $
+* @version: $Id: mod_styledemo.php, v 1.0.2 2011/01/24 11:01:24 leviatan21 Exp $
 * @copyright: leviatan21 < info@mssti.com > (Gabriel) http://www.mssti.com/phpbb3/
 * @license: http://opensource.org/licenses/gpl-license.php GNU Public License 
 * @author: leviatan21 - http://www.phpbb.com/community/memberlist.php?mode=viewprofile&u=345763
@@ -44,7 +44,7 @@ $lang = array_merge($lang, array(
 	'INSTALLER_TITLE_EXPLAIN'		=> 'Bienvenido a la instalación del <strong>Demo de Estilos</strong>',
 
 // ACP 
-	'SD_LINK_TO_MSSTI'		=> 'Style Demo MOD, versión %s por <a href="http://www.mssti.com/phpbb3" onclick="window.open(this.href);return false;">mssti</a>',
+	'SD_LINK_TO_MSSTI'				=> 'Style Demo MOD, versión %s por <a href="http://www.mssti.com/phpbb3" onclick="window.open(this.href);return false;">mssti</a>',
 
 	'ACP_SD_TITLE'					=> 'Style Demo',
 	'ACP_SD_TITLE_EXPLAIN'			=> 'Desde aquí puede administrar la información de los estilos disponibles. Usted puede alterar la información de los estilos para el “Style Demo MOD”, note que esta información no interfiere con los datos de los estilos para phpBB. El estilo por defecto actual es señalado con un asterisco (*)',
@@ -111,7 +111,8 @@ $lang = array_merge($lang, array(
 	'SD_NO_STYLE_DATA'	=> 'No se pudo encontrar el estilo',
 	'SD_NOFRAMES'		=> 'Disculpe, nu navegador no pospora frames',
 	'SD_AJAX_DISABLED'	=> '<strong>Estado:</strong> No se pudo crear el Ojbeto. Su navegador no es compatible con AJAX (XMLHttpRequest) y es incapaz de procesar esta solicitud.',
-
+	'SD_LOGIN_EXPLAIN'	=> 'El foro requiere que esté registrado e identificado para ver “Demo de Estilos”.',
+	'SD_DISABLE'		=> 'Disculpe. EEl “Demo de Estilos” no está disponible de momento',
 ));
 
 ?>

@@ -7,7 +7,7 @@
 
 <!--
 	@package: phpBB 3.0.8 :: Style Demo MOD
-	@version: $Id: index.php, v 1.0.1 2010/11/25 10:11:25 leviatan21 Exp $
+	@version: $Id: index.php, v 1.0.2 2011/01/10 11:01:10 leviatan21 Exp $
 	@copyright: leviatan21 < info@mssti.com > (Gabriel) http://www.mssti.com/phpbb3/
 	@license: http://opensource.org/licenses/gpl-license.php GNU Public License 
 	@author: leviatan21 - http://www.phpbb.com/community/memberlist.php?mode=viewprofile&u=345763
@@ -25,7 +25,7 @@
           but also helps build interest, traffic and use of mssti mods.
           If you refuse to include this then support on our forums may be affected.
           
-          MSSTI : 2010
+          MSSTI : 2010, 2011
 //-->
 
 </head>
@@ -113,13 +113,37 @@
 	var the_lang_el	= 'lang_iso';
 	var Ajax_xmlHttp = Ajax_object();
 
+	// https://developer.mozilla.org/En/DOM/Window.location#section_5
+	function clear_link(location)
+	{
+		var the_link = location.pathname + location.search;
+		// Delete the old style
+		the_link = the_link.replace(/(&|\?)style=(\d+)/gi, '');
+		// Delete the ond language
+		the_link = the_link.replace(/(&|\?)lang=(\w+)/gi, '');
+		// Delete the sd parameter
+		the_link = the_link.replace(/(&|\?)sd=(\d+)/gi, '');
+		// Delete the redirect parameter
+		the_link = the_link.replace(/(&|\?)panel=(\w+)/gi, '');
+		// Delete the redirect parameter
+		the_link = the_link.replace(/(&|\?)redirect=(.+)$/gi, '');
+		// Get only the script page
+		the_link = the_link.substring(the_link.lastIndexOf("/") + 1);
+		// Rebuild the link
+		the_link = '{UA_ROOT_PATH}' + the_link.replace(/{UA_PHPEXT}(&amp;|&)/gi, '{UA_PHPEXT}?');
+		// return
+		return the_link;
+	}
+
 	function select_style(style_id)
 	{
 		Ajax_send(style_id);
 
 		var lang_name = is_selected(the_lang_el);
 
-		window.parent.bottom.location =  '{UA_SD_INDEX}?panel=bottom&sd=1&style=' + style_id + ((lang_name) ? '&lang=' + lang_name : '');
+		var clear_location = clear_link(window.parent.bottom.location);
+		window.parent.bottom.location = '{UA_SD_INDEX}?panel=bottom&sd=1&style=' + style_id + ((lang_name) ? '&lang=' + lang_name : '') + '&redirect=' + encodeURIComponent(clear_location);
+	//	window.parent.bottom.location = '{UA_SD_INDEX}?panel=bottom&sd=1&style=' + style_id + ((lang_name) ? '&lang=' + lang_name : '');
 
 		return;
 	}
@@ -149,10 +173,12 @@
 	{
 		var the_langs	= document.forms[the_form_el].elements[the_lang_el];
 		var curr_index	= the_langs.selectedIndex;
-		var lang_id		= the_langs.options[curr_index].value;
+		var lang_name	= the_langs.options[curr_index].value;
 		var style_id	= is_selected(the_style_el);
 
-		window.parent.bottom.location = '{UA_SD_INDEX}?panel=bottom&lang=' + lang_id + ((style_id) ? '&style=' + style_id : '');
+		var clear_location = clear_link(window.parent.bottom.location);
+		window.parent.bottom.location = '{UA_SD_INDEX}?panel=bottom&sd=1&lang=' + lang_name + ((style_id) ? '&style=' + style_id : '') + '&redirect=' + encodeURIComponent(clear_location);
+	//	window.parent.bottom.location = '{UA_SD_INDEX}?panel=bottom&lang=' + lang_id + ((style_id) ? '&style=' + style_id : '');
 
 		return;
 	}
@@ -243,7 +269,7 @@
 			<tr>
 				<!-- IF S_LOGO -->
 				<td class="col_1">
-					<a href="{U_SD_INDEX}" class="site_logo"><img src="./images/site_logo.gif" alt="" /></a>
+					<a href="{U_SD_INDEX}" class="site_logo" onclick="window.open(this.href);return false;"><img src="./images/site_logo.gif" alt="" /></a>
 				</td>
 				<!-- ENDIF -->
 				<td class="col_2">

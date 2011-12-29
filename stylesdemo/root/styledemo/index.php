@@ -1,7 +1,7 @@
 <?php
 /**
 * @package: phpBB 3.0.8 :: Style Demo MOD -> root/styledemo/
-* @version: $Id: index.php, v 1.0.1 2010/11/25 10:11:25 leviatan21 Exp $
+* @version: $Id: index.php, v 1.0.2 2011/01/24 11:01:24 leviatan21 Exp $
 * @copyright: leviatan21 < info@mssti.com > (Gabriel) http://www.mssti.com/phpbb3/
 * @license: http://opensource.org/licenses/gpl-license.php GNU Public License 
 * @author: leviatan21 - http://www.phpbb.com/community/memberlist.php?mode=viewprofile&u=345763
@@ -26,9 +26,33 @@ $styledemo = new style_demo();
 
 $styledemo->setup();
 
-if (!$styledemo->settings['sd_mod'] || (!$user->data['is_registered'] && !$styledemo->settings['sd_guest'])/** || $user->data['is_bot'] **/)
+if (!$styledemo->settings['sd_mod'])
 {
-	trigger_error('NOT_AUTHORISED');
+	// Default message
+	$message = 'NOT_AUTHORISED';
+
+	// Message for bots 
+	if ($user->data['is_bot'])
+	{
+		send_status_line(503, 'Service Unavailable');
+	}
+	// Is board disabled ?
+	if ($config['board_disable'])
+	{
+		$message = 'BOARD_DISABLE';
+	}
+	// Is style demo disabled for guests
+	if (!$user->data['is_registered'] && !$styledemo->settings['sd_guest'])
+	{
+		$message = (isset($user->lang['SD_LOGIN_EXPLAIN'])) ? $user->lang['SD_LOGIN_EXPLAIN'] : $message;
+	}
+	// Is style demo disabled 
+	else
+	{
+		$message = (!$styledemo->settings['sd_mod']) ? 'SD_DISABLE' : $message;
+	}
+
+	trigger_error($message);
 }
 
 if (request_var('ajax', 0))
