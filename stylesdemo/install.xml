@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
 <!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-
 		<title lang="en"><![CDATA[Style Demo MOD]]></title>
-
 		<description lang="en"><![CDATA[This MOD made possible to have a style demostration page with a real preview of styles
 		Administrator can add usefull extra style data, like author's data, support link and a download link.]]></description>
-		
-		<author-notes lang="en"><![CDATA[
-	Please do not remove the copyright notices and the link to michaelcullum.com
+		<author-notes lang="en"><![CDATA[Please do not remove the copyright notices and the link to michaelcullum.com
 	
 	Before adding this MOD to your forum, you should back up all files and databases related to this MOD.]]></author-notes>
-
 		<author-group>
 			<author>
 				<realname><![CDATA[Gabriel]]></realname>
@@ -23,70 +18,59 @@
 				<homepage><![CDATA[http://www.mssti.com/phpbb3/]]></homepage>
 				<email><![CDATA[info@mssti.com]]></email>
 				<contributions-group>
-					<contributions status="current" from="2010-08-10" position="Developer"/>
+					<contributions status="past" from="2010-08-10" to="2011-08-12" position="Original Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Michael Cullum]]></realname>
+				<username><![CDATA[Unknown Bliss]]></username>
+				<homepage><![CDATA[http://www.michaelcullum.com]]></homepage>
+				<email><![CDATA[m@michaelcullum.com]]></email>
+				<contributions-group>
+					<contributions status="current" from="2011-28-12" position="Developer"/>
 				</contributions-group>
 			</author>
 		</author-group>
-
-		<mod-version>1.0.2</mod-version>
-
+		<mod-version>1.0.3</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.8</target-version>
+			<target-version>3.0.10</target-version>
 		</installation>
-
 		<history>
 			<entry>
-				<date>2011-01-24</date>
-				<rev-version>1.0.2</rev-version>
+				<date>2010-08-25</date>
+				<rev-version>1.0.0</rev-version>
 				<changelog lang="en">
-					<change>[New] Keep the forum page when change the style and/or language </change>
-					<change>[Fix] Minor issues reported by MOD Team </change>
-					<change>[Fix] Logo click issue </change>
+					<change><![CDATA[Initial release.]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2010-11-25</date>
 				<rev-version>1.0.1</rev-version>
 				<changelog lang="en">
-					<change>[Fix] Severals issues reported by MOD Team </change>
+					<change><![CDATA[[Fix] Severals issues reported by MOD Team]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2010-08-25</date>
-				<rev-version>1.0.0</rev-version>
+				<date>2011-01-24</date>
+				<rev-version>1.0.2</rev-version>
 				<changelog lang="en">
-					<change> Initial release.</change>
+					<change><![CDATA[[New] Keep the forum page when change the style and/or language]]></change>
+					<change><![CDATA[[Fix] Minor issues reported by MOD Team]]></change>
+					<change><![CDATA[[Fix] Logo click issue]]></change>
 				</changelog>
 			</entry>
 		</history>
-
-		<link-group>
-			<link type="language" href="contrib/es.xml" lang="en">Install Spanish language pack</link>
-		</link-group>
 	</header>
-
 	<action-group>
-
 		<copy>
-			<file from="root/install_sd.php" to="install_sd.php"/>
-			<file from="root/adm/style/acp_styledemo.html" to="adm/style/acp_styledemo.html"/>
-			<file from="root/includes/acp/info/acp_styledemo.php" to="includes/acp/info/acp_styledemo.php"/>
-			<file from="root/includes/acp/acp_styledemo.php" to="includes/acp/acp_styledemo.php"/>
-			<file from="root/includes/functions_styledemo.php" to="includes/functions_styledemo.php"/>
-			<file from="root/language/en/mods/mod_styledemo.php" to="language/en/mods/mod_styledemo.php"/>
-			<file from="root/styledemo/*.*" to="styledemo/*.*"/>
-			<file from="root/umil/*.*" to="umil/*.*"/>
+			<file from="root/*.*" to="*.*"/>
 		</copy>
-
-		<php-installer><![CDATA[install_sd.php]]></php-installer>
-
 		<open src="style.php">
 			<edit>
 				<find><![CDATA[	$user_image_lang = (file_exists($phpbb_root_path . 'styles/' . $theme['imageset_path'] . '/imageset/' . $user['user_lang'])) ? $user['user_lang'] : $config['default_lang'];]]></find>
-				<action type="before-add"><![CDATA[
-// Styles Demo MOD - Start
+				<action type="before-add"><![CDATA[// Styles Demo MOD - Start
 	/**
 	* We only force language change, if we are running from Styles Demo MOD
 	**/
@@ -108,7 +92,6 @@
 ]]></action>
 			</edit>
 		</open>
-
 		<open src="includes/constants.php">
 			<edit>
 				<find><![CDATA[// Additional tables]]></find>
@@ -117,12 +100,10 @@ define('STYLES_DEMO_TABLE', $table_prefix . 'styles_demo');
 // Styles Demo MOD - End]]></action>
 			</edit>
 		</open>
-
 		<open src="includes/session.php">
 			<edit>
 				<find><![CDATA[		// We include common language file here to not load it every time a custom language file is included]]></find>
-				<action type="after-add"><![CDATA[
-// Styles Demo MOD - Start
+				<action type="after-add"><![CDATA[// Styles Demo MOD - Start
 		/**
 		* We only force language change, if we are running from Styles Demo MOD
 		**/
@@ -143,14 +124,12 @@ define('STYLES_DEMO_TABLE', $table_prefix . 'styles_demo');
 
 ]]></action>
 			</edit>
-
 			<edit>
 				<find><![CDATA[			// Set up style
 			$style = ($style) ? $style : ((!$config['override_user_style']) ? $this->data['user_style'] : $config['default_style']);
 		}
 ]]></find>
-				<action type="after-add"><![CDATA[
-// Styles Demo MOD - Start
+				<action type="after-add"><![CDATA[// Styles Demo MOD - Start
 		/**
 		* We only force style change, if we are running from Styles Demo MOD
 		**/
@@ -175,12 +154,10 @@ define('STYLES_DEMO_TABLE', $table_prefix . 'styles_demo');
 ]]></action>
 			</edit>
 		</open>
-
 		<open src="language/en/acp/common.php">
 			<edit>
 				<find><![CDATA[?>]]></find>
-				<action type="before-add"><![CDATA[
-// Style Demo MOD - START
+				<action type="before-add"><![CDATA[// Style Demo MOD - START
 $lang = array_merge($lang, array(
 	'ACP_SD_TITLE'		=> 'Style Demo',
 	'ACP_SD_SETTINGS'	=> 'Settings',
@@ -191,63 +168,7 @@ $lang = array_merge($lang, array(
 ]]></action>
 			</edit>
 		</open>
-
-		<diy-instructions lang="en"><![CDATA[IMPORTANT ! 
-
-#####################################################################
-A) Database update :
-
-	A.1) Once all the files have been modified and uploaded to your site,
-	Make sure you run the installer ( install_sd.php )
-		If you use AutoMOD, it will display the installer link at the top of the result page.
-		For example if your domain name is www.mydomain.tld and you placed phpBB3 
-		in a directory /phpBB3 off your web root you would enter 
-		http://www.mydomain.tld/phpBB3/install_sd.php into your browser.
-	A.2) When you have done this you should see the “Style Demo MOD” installation screen appear, follow the instructions.
-	If the installation was successful, you can now use your forum.
-	Congratulations, you have installed “Style Demo MOD”. 
-	But there is still work ahead!
-	A.3) You should remove/rename the install file (install_sd.php) 
-	from your server.
-
-#####################################################################
-B) Log on to Administration Control Panel and Change the value that best suits your needs
-
-	B.1) Navigate to MOD. Tab
-	B.2) At the left menu you will find a new category “STYLE DEMO”
-	B.3) Settings : Here you can adjust the basic settings of the “Style Demo MOD”
-	B.4) Manage : Here you can manage installed styles on your board.
-
-#####################################################################
-C) Enjoy it !.]]></diy-instructions>
-		<diy-instructions lang="es"><![CDATA[IMPORTANT ! 
-
-#####################################################################
-A) Actualizar base de datos :
-
-	A.1) Una vez terminada la modificación de los archivos y estos estén en su servidor,
-	Asegurese de ejecutar el instalador ( install_sd.php )
-		Si utiliza AutoMOD, éste le mostrará el enlace al instalador al inicio de los resultados.
-		Por ejemplo, si su dominio es www.mydomain.tld y tiene instalado phpBB3
-		en un directorio /phpBB3 del raíz de su sitio web, usted debería puntar a
-		http://www.mydomain.tld/phpBB3/install_sd.php en su navegador.
-	A.2) Cuando haya realizado esto, usted verá la pantalla de instalción del “Style Demo MOD”, siga las instrucciones.
-	Si la instalación fué exitosa, ahora puede utilizar su foro.
-	Felicitaciones, usted ha instalado “Style Demo MOD”. 
-	Pero aún queda trabajo por hacer!
-	A.3) Debería renombrar/eliminar el archivo instalador (install_sd.php) 
-	de su servidor.
-
-#####################################################################
-B) Ingrese en el Panel de Administración (ACP) y cambie los valores que mejor se ajusten a sus necesidades
-
-	B.1) Navegue hasta la solapa MOD.
-	B.2) En el menu izquierdo encontrará una nueva categoría “DEMO DE ESTILOS”
-	B.3) Preferencias : Aquí puede ajustar la configuración básica para el “Style Demo MOD”.
-	B.4) Administrar estilos : Desde aquí puede administrar la información de los estilos instalados.
-
-#####################################################################
-C) Disfrútelo !.]]></diy-instructions>
-
+		<php-installer><![CDATA[install_sd.php]]></php-installer>
+		<diy-instructions lang="en"><![CDATA[You should remove/rename the install file (install_sd.php) from your server once you have run it.]]></diy-instructions>
 	</action-group>
 </mod>
