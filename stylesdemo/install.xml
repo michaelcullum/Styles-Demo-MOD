@@ -10,31 +10,11 @@
 
 		<description lang="en"><![CDATA[This MOD made possible to have a style demostration page with a real preview of styles
 		Administrator can add usefull extra style data, like author's data, support link and a download link.]]></description>
-		<description lang="es"><![CDATA[Este MOD hace posible tener una página demostración de estilos mediante una vista previa real de los estilos
-		El Administrador puede añadir información extra útil, a los estilos, como datos del autor, enlace al soporte y un enlace a su descarga.]]></description>
-
+		
 		<author-notes lang="en"><![CDATA[
-	Please do not remove the copyright notices and the link to www.mssti.com
-	If you refuse to this, will not get support from me.
-
-	-------------------------------------------------------------------
-	This MOD was designed to works on phpBB version:
-		3.0.7-PL1
-		3.0.8
-	-------------------------------------------------------------------
-
+	Please do not remove the copyright notices and the link to michaelcullum.com
+	
 	Before adding this MOD to your forum, you should back up all files and databases related to this MOD.]]></author-notes>
-		<author-notes lang="es"><![CDATA[
-	Por favor no remover la nota del copyright o el enlace a www.mssti.com
-	Si se niega, usted no recibirá soporte de mi parte.
-
-	-------------------------------------------------------------------
-	Este MOD fué diseñado para funcionar con phpBB versión:
-		3.0.7-PL1
-		3.0.8
-	-------------------------------------------------------------------
-
-	Antes de añadir este MOD a su foro, usted debería realizar copias de seguridad de los archivos y base de datos relacionados con este MOD.]]></author-notes>
 
 		<author-group>
 			<author>
